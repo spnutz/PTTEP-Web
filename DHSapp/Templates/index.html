@@ -27,7 +27,7 @@
     
     <div class="container">
             <div class="row">
-              <div class="col-">
+              <!--div class="col-">
                     <div class="p-3 mb-2 bg-warning text-dark">
                         <form>
                             <label for='p-wave1'>P-Wave Velocity :</label>
@@ -52,19 +52,118 @@
                             <label for="density2">Density2 :</label>
                             <input name="density2" id="density2" type="text" placeholder="Enter Density2">
                             <br>
-
-
                             <button type="button" class="btn btn-outline-primary" onclick="adddata()">Plot</button>
                         </form>
 
                     </div>
                     
+              </div-->
+              <div class="col">
+
               </div>
-              <div class="col-6">
-                    <canvas id="myChart" width="2" height="1"></canvas>
+              <div class="col">
+                    <canvas id="myChart"></canvas>
                     <script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
               </div>
+              <div class="col">
+
+              </div>
             </div>
+            <div class="card-deck">
+                <div class="card">
+                    <!---------------------------------Gas input--------------------------------->
+                  <div class="card-body">
+                    <h5 class="card-title">Gas</h5>
+                    <form>
+                        <label for='p-wave1'>P-Wave Velocity :</label>
+                        <input name="p-wave1" id="p-wave1" type="text" placeholder="input value">
+                        <br>
+                        <label for="s-wave1">S-Wave Velocity :</label>
+                        <input name="s-wave1" id="s-wave1" type="text" placeholder="input value">
+                        <br>
+                        <label for="density1">Density1 :</label>
+                        <input name="density1" id="density1" type="text" placeholder="Enter Density">
+                        <br>
+                        <p id="poisson1">Poisson1 : </p>
+                        <p id="vp_vs1">Vp/Vs :</p>
+                        <p id="zp1">Zp1 :</p>
+                        <p id="rp">Rp :</p>
+                        <label for="p-wave2">P-Wave Velocity2 :</label>
+                        <input name="p-wave2" id="p-wave2" type="text" placeholder="Enter P-Wave Velocity">
+                        <br>
+                        <label for="s-wave2">S-Wave Velocity2:</label>
+                        <input name="s-wave2" id="s-wave2" type="text" placeholder="Enter S-Wave Velocity">
+                        <br>
+                        <label for="density2">Density2 :</label>
+                        <input name="density2" id="density2" type="text" placeholder="Enter Density2">
+                        <br>
+                        <button type="button" class="btn btn-outline-primary" onclick="adddata()">Plot</button>
+                    </form>
+                  </div>
+                </div>
+                <div class="card">
+                    <!---------------------------------------Water input--------------------------------------->
+                    <div class="card-body">
+                    <h5 class="card-title">Water</h5>
+                    <form>
+                            <label for='p-wave1_water'>P-Wave Velocity :</label>
+                            <input name="p-wave1_water" id="p-wave1_water" type="text" placeholder="input value">
+                            <br>
+                            <label for="s-wave1_water">S-Wave Velocity :</label>
+                            <input name="s-wave1_water" id="s-wave1_water" type="text" placeholder="input value">
+                            <br>
+                            <label for="density1_water">Density1 :</label>
+                            <input name="density1_water" id="density1_water" type="text" placeholder="Enter Density">
+                            <br>
+                            <p id="poisson1_water">Poisson1 : </p>
+                            <p id="vp_vs1_water">Vp/Vs :</p>
+                            <p id="zp1_water">Zp1 :</p>
+                            <p id="rp_water">Rp :</p>
+                            <label for="p-wave2_water">P-Wave Velocity2 :</label>
+                            <input name="p-wave2_water" id="p-wave2_water" type="text" placeholder="Enter P-Wave Velocity">
+                            <br>
+                            <label for="s-wave2_water">S-Wave Velocity2:</label>
+                            <input name="s-wave2_water" id="s-wave2_water" type="text" placeholder="Enter S-Wave Velocity">
+                            <br>
+                            <label for="density2_water">Density2 :</label>
+                            <input name="density2_water" id="density2_water" type="text" placeholder="Enter Density2">
+                            <br>
+                            <button type="button" class="btn btn-outline-primary" onclick="adddata()">Plot</button>
+                    </form>
+                  </div>
+                  
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Oil</h5>
+                    <form>
+                            <label for='p-wave1_oil'>P-Wave Velocity :</label>
+                            <input name="p-wave1_oil" id="p-wave1_oil" type="text" placeholder="input value">
+                            <br>
+                            <label for="s-wave1_oil">S-Wave Velocity :</label>
+                            <input name="s-wave1_oil" id="s-wave1_oil" type="text" placeholder="input value">
+                            <br>
+                            <label for="density1_oil">Density1 :</label>
+                            <input name="density1_oil" id="density1_oil" type="text" placeholder="Enter Density">
+                            <br>
+                            <p id="poisson1_oil">Poisson1 : </p>
+                            <p id="vp_vs1_oil">Vp/Vs :</p>
+                            <p id="zp1_oil">Zp1 :</p>
+                            <p id="rp_oil">Rp :</p>
+                            <label for="p-wave2_oil">P-Wave Velocity2 :</label>
+                            <input name="p-wave2_oil" id="p-wave2_oil" type="text" placeholder="Enter P-Wave Velocity">
+                            <br>
+                            <label for="s-wave2_oil">S-Wave Velocity2:</label>
+                            <input name="s-wave2_oil" id="s-wave2_oil" type="text" placeholder="Enter S-Wave Velocity">
+                            <br>
+                            <label for="density2_oil">Density2 :</label>
+                            <input name="density2_oil" id="density2_oil" type="text" placeholder="Enter Density2">
+                            <br>
+                            <button type="button" class="btn btn-outline-primary" onclick="adddata()">Plot</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
     </div>
     
 
