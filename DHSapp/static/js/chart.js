@@ -1,5 +1,6 @@
 var ctx = document.getElementById('myChart');
 
+
 var total_r_gas = [] ;
 var total_r_water = [];
 var total_r_oil = [];
@@ -22,9 +23,13 @@ function adddata(){
     let zp1 = (d1 * p_wave1).toFixed(2);
     let zp2 = (d2 * p_wave2).toFixed(2);
     
-    document.getElementById("poisson1").innerHTML = "Poisson1 : " + poisson1;
+    document.getElementById("poisson1").innerHTML = "Poisson's ratio 1 : " + poisson1;
     document.getElementById("vp_vs1").innerHTML = "Vp/Vs1 : " + Vp_Vs1;
     document.getElementById("zp1").innerHTML = "Zp1 : " + zp1;
+
+    document.getElementById("poisson2").innerHTML = "Poisson's ratio 2 : " + poisson2;
+    document.getElementById("vp_vs2").innerHTML = "Vp/Vs2 : " + Vp_Vs2;
+    document.getElementById("zp2").innerHTML = "Zp2 : " + zp2;
 
     ///////////////////////////// Water part //////////////////////////////////////
     let p_wave1_water = Number(document.getElementById("p-wave1_water").value);
@@ -44,9 +49,15 @@ function adddata(){
     let zp1_water = (d1_water * p_wave1_water).toFixed(2);
     let zp2_water = (d2_water * p_wave2_water).toFixed(2);
     
-    document.getElementById("poisson1_water").innerHTML = "Poisson1 : " + poisson1_water;
+    document.getElementById("poisson1_water").innerHTML = "Poisson's ratio 1 : " + poisson1_water;
     document.getElementById("vp_vs1_water").innerHTML = "Vp/Vs1 : " + Vp_Vs1_water;
     document.getElementById("zp1_water").innerHTML = "Zp1 : " + zp1_water;
+
+    document.getElementById("poisson2_water").innerHTML = "Poisson's ratio 2 : " + poisson2_water;
+    document.getElementById("vp_vs2_water").innerHTML = "Vp/Vs2 : " + Vp_Vs2_water;
+    document.getElementById("zp2_water").innerHTML = "Zp2 : " + zp2_water;
+
+    
 
     ///////////////////////////// Oil part //////////////////////////////////////
     let p_wave1_oil = Number(document.getElementById("p-wave1_oil").value);
@@ -69,6 +80,12 @@ function adddata(){
     document.getElementById("poisson1_oil").innerHTML = "Poisson1 : " + poisson1_oil;
     document.getElementById("vp_vs1_oil").innerHTML = "Vp/Vs1 : " + Vp_Vs1_oil;
     document.getElementById("zp1_oil").innerHTML = "Zp1 : " + zp1_oil;
+
+    document.getElementById("poisson2_oil").innerHTML = "Poisson2 : " + poisson2_oil;
+    document.getElementById("vp_vs2_oil").innerHTML = "Vp/Vs2 : " + Vp_Vs2_oil;
+    document.getElementById("zp2_oil").innerHTML = "Zp2 : " + zp2_oil;
+
+    
     
 
    // Reflection
@@ -89,18 +106,20 @@ function adddata(){
        x_axis.push(x);
    }
    //// show reflection
-   document.getElementById("rp").innerHTML = "Rp : " + total_r_gas[0];
-   document.getElementById("rp_water").innerHTML = "Rp : " + total_r_water[0];
-   document.getElementById("rp_oil").innerHTML = "Rp : " + total_r_oil[0];
+   document.getElementById("r_gas").innerHTML = "Reflection of Gas : " + (total_r_gas[0]).toFixed(3);
+   document.getElementById("r_water").innerHTML = "Reflection of Water : " + (total_r_water[0]).toFixed(3);
+   document.getElementById("r_oil").innerHTML = "Reflection of Oil : " + (total_r_oil[0]).toFixed(3);
   
 
 
     
-    //myLineChart.data.datasets[0].data[0] = input;
+    // Line chart
     myLineChart.data.datasets[0].data = total_r_gas;
     myLineChart.data.datasets[1].data = total_r_water;
     myLineChart.data.datasets[2].data = total_r_oil;
     myLineChart.update()
+
+   
 }
 
 
@@ -125,7 +144,7 @@ function reflection(P1, D1, P2, D2, poisson1, poisson2, x){
 
 
 
-//plot
+//plot line chart
 var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -155,17 +174,27 @@ var myLineChart = new Chart(ctx, {
     },
     options: {
         scales:{
+            xAxes:[{
+                scaleLabel:{
+                    display:true,
+                    labelString: 'Incidence Angle (Degrees)'
+                }
+            }],
             yAxes:[{
+                scaleLabel:{
+                    display:true,
+                    labelString: 'Reflection'
+                },
                 ticks:{
+                    beginAtZero:true,
                     maxTicksLimit: 5
-                    
-                    //Min: total_r[0],
-                    //Max: total_r[90]
                 }
             }]
         }
     }
 });
+
+
 
 
 
